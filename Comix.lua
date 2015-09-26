@@ -1,4 +1,4 @@
-ComixOptionsHeader = "Comix Options v6.2.2.2";
+ComixOptionsHeader = "Comix Options v6.2.2.3";
 
 function Comix_OnLoad()
 
