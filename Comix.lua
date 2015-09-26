@@ -1,4 +1,5 @@
-ComixOptionsHeader = "Comix Options v6.2.2.3";
+ComixVersion = "v6.2.2.4";
+ComixOptionsHeader = "Comix Options"..ComixVersion;
 
 function Comix_OnLoad()
 
@@ -992,6 +993,7 @@ function Comix_Command(Nerd)
 	DEFAULT_CHAT_FRAME:AddMessage("\nDrama - /drama will fire the drama detector")
 	DEFAULT_CHAT_FRAME:AddMessage("Bad jokes - /badjoke will use the bad joke detector, can be aimed at your target")
 	DEFAULT_CHAT_FRAME:AddMessage("\nEverthing else should be explained in the tooltips, im too lazy to type any more :P")
+	DEFAULT_CHAT_FRAME:AddMessage("About - /comix about Will give version and author name")
 		
 	
 	
@@ -1039,6 +1041,10 @@ function Comix_Command(Nerd)
   
   elseif (Nerd == "reportjump") then
         SendChatMessage("[Jump Report]: "..UnitName("player").." has jumped " ..Comix_JumpCount.." times", "SAY")
+
+  elseif (Nerd == "about") then
+	DEFAULT_CHAT_FRAME:AddMessage("[Comix]: Author: Turaka @ Quel'Thalas / Version: "..ComixVersion)
+
     	
   else 
     comix_options_frame:Show()
