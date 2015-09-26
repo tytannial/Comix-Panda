@@ -1,4 +1,4 @@
-ComixVersion = "v6.2.2.4";
+ComixVersion = "v6.2.2.5";
 ComixOptionsHeader = "Comix Options"..ComixVersion;
 
 function Comix_OnLoad()
@@ -1043,7 +1043,7 @@ function Comix_Command(Nerd)
         SendChatMessage("[Jump Report]: "..UnitName("player").." has jumped " ..Comix_JumpCount.." times", "SAY")
 
   elseif (Nerd == "about") then
-	DEFAULT_CHAT_FRAME:AddMessage("[Comix]: Author: Turaka @ Quel'Thalas / Version: "..ComixVersion)
+	DEFAULT_CHAT_FRAME:AddMessage("[Comix]: Author: Turaka @ Quel'Thalas / Version: "..ComixVersion,0,0.5,1)
 
     	
   else 
