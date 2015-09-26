@@ -1,5 +1,5 @@
-## Interface: 62200
-## Title: Comix
+## Interface: 60200
+## Title: Comix Reloaded
 ## Notes: A plain fun addon
 ## Author: Turaka
 ## URL: 

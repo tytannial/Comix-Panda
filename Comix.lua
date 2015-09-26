@@ -29,6 +29,8 @@ Comix_Frame:RegisterEvent("OnUpdate")
   SlashCmdList["Comix"] = Comix_Command;
 	SLASH_Comix1 = "/Comix";
 	SLASH_Comix2 = "/comix";
+	SLASH_Comix3 = "/Comixreloaded";
+	SLASH_Comix4 = "/comixreloaded";
 	
   SlashCmdList["ComixJoke"] = Comix_BadJoke;
 	SLASH_ComixJoke1 = "/badjoke";
