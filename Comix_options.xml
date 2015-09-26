@@ -176,6 +176,7 @@
 		  comix_options_enable_readysound:SetChecked(Comix_ReadySoundEnabled);
 		  comix_options_enable_overkill:SetChecked(Comix_OverkillEnabled);
           comix_options_critgap:SetText(Comix_CritGap);
+          comixheader:SetText(ComixOptionsHeader);
          end
          self:RegisterForDrag("LeftButton");
          comix_advanced_options_frame:RegisterForDrag("LeftButton");

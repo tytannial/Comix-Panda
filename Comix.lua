@@ -1,3 +1,5 @@
+ComixOptionsHeader = "Comix Options v6.2.2.2";
+
 function Comix_OnLoad()
 
 -- Registering Events --
