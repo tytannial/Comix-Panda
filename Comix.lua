@@ -50,7 +50,7 @@ Comix_Frame:RegisterEvent("OnUpdate")
 	dead = false;
 	
 -- Setting variables --
-	Comix_ShakeEnabled = true;
+	Comix_ShakeEnabled = false;
 	Comix_ShakeDuration = 1;
 	Comix_ShakeIntensity = 70;
 	Comix_ShakeOffset = 1;
@@ -395,7 +395,8 @@ if event == "COMBAT_LOG_EVENT_UNFILTERED" then
 
 				if fastrandom(1,100) <= Comix_CritPercent then
 					if Comix_ShakeEnabled then
-						Comix_ShakeScreen()
+						-- Disabled due to errors
+						--Comix_ShakeScreen()
 					end
 				
 				ComixCritCount = ComixCritCount + 1

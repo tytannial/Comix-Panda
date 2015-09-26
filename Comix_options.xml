@@ -116,13 +116,13 @@
           comix_options_enable_objectimages.ttext="Enable Objection Images, Portraits only display for party/raid members"
 		  comix_options_enable_publicobjection.ttext="Ignore Objections from everyone outside your party or raid, public objections do not show a portrait and arent gender specific"
           comix_options_enable_finishenabled.ttext="'Finish Him'-Sound for low-Health foes."
-          comix_options_enable_shakes.ttext="LaVendetta-style screen shakes on melee crits (big fun!)."
+          <!-- comix_options_enable_shakes.ttext="LaVendetta-style screen shakes on melee crits (big fun!)." -->
           comix_options_enable_critgap.ttext="Only want fun at really impressive crits ? try this."
           comix_options_scale_slider.ttext="Adjust the size of the images."
           comix_options_critpercent_slider.ttext="Percentage chance for crits to show"
           comix_options_finishgap_slider.ttext="Adjust the maximum life percentage of your enemy until 'Finish him' rings your ears."
 		  comix_options_overkill_slider.ttext="Adjust the percentage of killing blow damage is required for an overkill."
-		  comix_options_shake_slider.ttext="Adjusts the intensity of screen shakes"
+	  <!-- comix_options_shake_slider.ttext="Adjusts the intensity of screen shakes" -->
           comix_options_anispeed_slider.ttext="Turn the speed of the animations up, or down"
           comix_options_maxcrit_slider.ttext="the amount of crits needed for an Impressive"
           Comix_AdvancedButton.ttext="There are more options than you might think."
@@ -162,7 +162,7 @@
           comix_options_critpercent_slider:SetValue(Comix_CritPercent);
           comix_options_finishgap_slider:SetValue(Comix_FinishHimGap);
 		  comix_options_overkill_slider:SetValue(Comix_Overkill);
-		  comix_options_shake_slider:SetValue(Comix_ShakeOffset);
+	  <!-- comix_options_shake_slider:SetValue(Comix_ShakeOffset); -->
           comix_options_enable_specials:SetChecked(Comix_SpecialsEnabled);
           comix_options_enable_bam:SetChecked(Comix_BamEnabled);
           comix_options_enable_images:SetChecked(Comix_ImagesEnabled);
@@ -170,7 +170,7 @@
 		  comix_options_enable_objectimages:SetChecked(Comix_ObjectionImagesEnabled);
 		  comix_options_enable_publicobjection:SetChecked(Comix_PublicObjections);
           comix_options_enable_finishenabled:SetChecked(Comix_FinishhimEnabled);
-          comix_options_enable_shakes:SetChecked(Comix_ShakeEnabled);
+          <!-- comix_options_enable_shakes:SetChecked(Comix_ShakeEnabled); -->
           comix_options_enable_critgap:SetChecked(Comix_CritGapEnabled);
 		  comix_options_enable_ressound:SetChecked(Comix_ResSoundEnabled);
 		  comix_options_enable_readysound:SetChecked(Comix_ReadySoundEnabled);
@@ -205,7 +205,7 @@
 		 comix_options_enable_objectimagesText:SetText("Enable Objection Images");
 		 comix_options_enable_publicobjectionText:SetText("Enable Public Objections");
          comix_options_enable_finishenabledText:SetText("Enable 'Finish Him'");
-         comix_options_enable_shakesText:SetText("Enable screen shakes");
+         <!-- comix_options_enable_shakesText:SetText("Enable screen shakes"); -->
 		 comix_options_enable_critgapText:SetText("Enable Crit Gap");
          comix_advanced_options_frame:Hide();
       </OnLoad>
@@ -414,8 +414,8 @@
 	         </Layer>
 	       </Layers>
       </Slider>   
-	  
-	      <Slider name="comix_options_shake_slider" inherits="comix_sliderz" minValue="1" maxValue="20" defaultValue="1" valueStep="1">
+	<!-- Disabled until further notice  
+	<Slider name="comix_options_shake_slider" inherits="comix_sliderz" minValue="1" maxValue="20" defaultValue="1" valueStep="1">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_images">
 			     <Offset>
@@ -442,6 +442,7 @@
 	         </Layer>
 	       </Layers>
       </Slider>   
+      -->
       
       
       
@@ -621,7 +622,7 @@
 			Comix_CritFlashEnabled=int2bool(comix_options_enable_critflash:GetChecked());
 			Comix_CritHealsEnabled=int2bool(comix_options_enable_critheals:GetChecked());
 			Comix_HealFlashEnabled=int2bool(comix_options_enable_healflash:GetChecked());
-          	Comix_ShakeEnabled=int2bool(comix_options_enable_shakes:GetChecked());
+          	<!-- Comix_ShakeEnabled=int2bool(comix_options_enable_shakes:GetChecked()); -->
             Comix_CritGapEnabled=int2bool(comix_options_enable_critgap:GetChecked());
             <!-- Comix_NightfallEnabled=int2bool(comix_options_enable_nightfall:GetChecked()); -->
             <!-- Comix_NightfallAutoTarget=int2bool(comix_options_enable_nightfallautotarget:GetChecked()); -->
@@ -653,7 +654,7 @@
             Comix_FinishHimGap=comix_options_finishgap_slider:GetValue();
 			Comix_Overkill=comix_options_overkill_slider:GetValue();
             Comix_CritPercent=comix_options_critpercent_slider:GetValue();
-			Comix_ShakeOffset=comix_options_shake_slider:GetValue();
+			<!-- Comix_ShakeOffset=comix_options_shake_slider:GetValue(); -->
            comix_options_frame:Hide();
           </OnClick>
         </Scripts>
@@ -777,6 +778,7 @@
 		      </Anchor>
 	       </Anchors>
       </CheckButton>
+      <!--
       <CheckButton name="comix_options_enable_shakes" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_finishenabled">
@@ -786,9 +788,11 @@
 		      </Anchor>
 	       </Anchors>
       </CheckButton>      
+      -->
       <CheckButton name="comix_options_enable_critgap" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
-		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_shakes">
+		      <!-- <Anchor point="TOPLEFT" relativeto="comix_options_enable_shakes"> -->
+		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_finishenabled">
 			     <Offset>
 				    <AbsDimension x="0" y="-25"></AbsDimension>
 			     </Offset>
