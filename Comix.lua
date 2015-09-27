@@ -1,4 +1,4 @@
-ComixVersion = "v6.2.2.6";
+ComixVersion = "v6.2.2.7";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -560,7 +560,7 @@ end
 	unghosted = false;
 	dontfireonalive = true;
 	if Comix_ResSoundEnabled then		
-		Comix_DongSound(ComixresSounds, fastrandom(1, ComixresSoundsCt));		
+		Comix_DongSound(ComixResSounds, fastrandom(1, ComixResSoundsCt));		
 	end
   end
   
@@ -993,7 +993,7 @@ function Comix_Command(Nerd)
 	DEFAULT_CHAT_FRAME:AddMessage("\nDrama - /drama will fire the drama detector")
 	DEFAULT_CHAT_FRAME:AddMessage("Bad jokes - /badjoke will use the bad joke detector, can be aimed at your target")
 	DEFAULT_CHAT_FRAME:AddMessage("\nEverthing else should be explained in the tooltips, im too lazy to type any more :P")
-	DEFAULT_CHAT_FRAME:AddMessage("About - /comix about Will give version and author name")
+	DEFAULT_CHAT_FRAME:AddMessage("About - /comix about will give version and author name")
 		
 	
 	
