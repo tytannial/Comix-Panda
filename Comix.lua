@@ -1,5 +1,5 @@
-ComixVersion = "v6.2.2.5";
-ComixOptionsHeader = "Comix Options"..ComixVersion;
+ComixVersion = "v6.2.2.6";
+ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
 
@@ -892,23 +892,23 @@ TimeSinceLastUpdate = TimeSinceLastUpdate + elapsed;
   while (TimeSinceLastUpdate > Comix_UpdateInterval) do
  
 	-- ScreenShake
-			if type(IsShaking) == "number" then
-			IsShaking = IsShaking - elapsed;
-			if IsShaking <= 0 then
-				WorldFrame:ClearAllPoints();
-				for index, value in pairs(OldWorldFramePoints) do
-					WorldFrame:SetPoint(value.point, value.xOffset, value.yOffset);
-				end
-				IsShaking = false;
-			else
-				WorldFrame:ClearAllPoints();
-				local moveBy;
-				moveBy = fastrandom(-100, 100)/(101 - Comix_ShakeIntensity - (Comix_ShakeOffset - 1));
-				for index, value in pairs(OldWorldFramePoints) do
-					WorldFrame:SetPoint(value.point, value.xOffset + moveBy, value.yOffset + moveBy);
-				end
-			end
-		end	
+--			if type(IsShaking) == "number" then
+--			IsShaking = IsShaking - elapsed;
+--			if IsShaking <= 0 then
+--				WorldFrame:ClearAllPoints();
+--				for index, value in pairs(OldWorldFramePoints) do
+--					WorldFrame:SetPoint(value.point, value.xOffset, value.yOffset);
+--				end
+--				IsShaking = false;
+--			else
+--				WorldFrame:ClearAllPoints();
+--				local moveBy;
+--				moveBy = fastrandom(-100, 100)/(101 - Comix_ShakeIntensity - (Comix_ShakeOffset - 1));
+--				for index, value in pairs(OldWorldFramePoints) do
+--					WorldFrame:SetPoint(value.point, value.xOffset + moveBy, value.yOffset + moveBy);
+--				end
+--			end
+--		end	
 
   --The Picture Animation
     for i = 1,5 do
