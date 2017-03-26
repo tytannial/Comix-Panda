@@ -1,4 +1,4 @@
-ComixVersion = "v7.0.6.0";
+ComixVersion = "v7.1.5.0";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -89,7 +89,7 @@ Comix_Frame:RegisterEvent("OnUpdate")
   Comix_BS_Update = false;
   Comix_BSEnabled = true;
   Comix_DemoShoutEnabled = true;
-  Comix_ZoneEnabled = true;
+  Comix_ZoneEnabled = false;
   Comix_FinishTarget = true;
   Comix_BamEnabled = false;
   Comix_ImagesEnabled = true;
