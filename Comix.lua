@@ -1,4 +1,4 @@
-ComixVersion = "v7.1.5.0";
+ComixVersion = "v7.2.0.0";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
