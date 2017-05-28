@@ -1,4 +1,4 @@
-ComixVersion = "v7.2.0.0";
+ComixVersion = "v7.2.0.1";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -46,6 +46,9 @@ Comix_Frame:RegisterEvent("OnUpdate")
 
   SlashCmdList["ComixDrama"] = Comix_Drama;
 	SLASH_ComixDrama1 = "/drama";
+
+  SlashCmdList["ComixReload"] = Comix_ReloadUI;
+  SLASH_ComixReload1 = "/rl";
 
 	dontfireonalive = false;
 	loaded = false;
@@ -1066,6 +1069,10 @@ end
 
 function Comix_Drama()
 	SendChatMessage(COMIX_DRAMAEMOTE, "EMOTE");
+end
+
+function Comix_ReloadUI()
+  ReloadUI()
 end
 
 function Comix_Fail(msg)
