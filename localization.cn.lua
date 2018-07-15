@@ -27,6 +27,7 @@ COMIX_SV = "获得了萨满之怒的效果"
 COMIX_SPRINT = "疾跑"
 COMIX_DASH = "急奔"
 COMIX_CANNIBALIZE = "你获得了食尸的效果"
+COMIX_ASPECT = "獵豹的看點"
 -- Targets --
 COMIX_BIGGLESWORTH = "比格沃斯"
 COMIX_REPAIRBOT = "修理机器人74A型"

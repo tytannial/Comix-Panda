@@ -14,8 +14,8 @@ if ( GetLocale() == "deDE" ) then
 	COMIX_CRITICALLY2 = "Kritische "
 	COMIX_CRITHEAL = "Kritische Heilung: (.+) heilt (.+) um (%d+) Punkte."
 COMIX_CRITHEAL2 = "Kritische Heilung: (.+) heilt Euch um (%d+) Punkte."
-COMIX_CRITYOU = "(. +) crits du für (%d+)."
-COMIX_SPELLCRITYOU = "(.+)'s (.+) crits du für (%d+)."
+COMIX_CRITYOU = "(. +) crits du fï¿½r (%d+)."
+COMIX_SPELLCRITYOU = "(.+)'s (.+) crits du fï¿½r (%d+)."
 	-- Abilities --
 	COMIX_BS = "Schlachtruf"
 	COMIX_DS = " Demoralisierungsruf"
@@ -24,6 +24,7 @@ COMIX_SPELLCRITYOU = "(.+)'s (.+) crits du für (%d+)."
 	COMIX_SPRINT = "Sprinten"
 	COMIX_DASH = "Spurt"
 	COMIX_CANNIBALIZE = "You gain Cannibalize."
+	COMIX_ASPECT = "Aspekt des Gepards"
 	COMIX_ICEBLOCK = "Ice Block"
 	-- Targets --
 	COMIX_BIGGLESWORTH = "Mr. Bigglesworth"
@@ -32,7 +33,7 @@ COMIX_SPELLCRITYOU = "(.+)'s (.+) crits du für (%d+)."
 	-- Hug Meter --
 	COMIX_YOULOW = "Euch"
 	COMIX_YOUUP = "Ihr"
-	COMIX_NEED = " müsst "
+	COMIX_NEED = " mï¿½sst "
 	COMIX_HUGS = "umarmt"
 	COMIX_HUG = "umarmt"
 	COMIX_HUGGAP = 9

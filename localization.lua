@@ -8,6 +8,7 @@ COMIX_SV = "is afflicted by Spell Vunerability"
 COMIX_SPRINT = "Sprint"
 COMIX_DASH = "Dash"
 COMIX_CANNIBALIZE = "Cannibalize"
+COMIX_ASPECT = "Aspect of the Cheetah"
 COMIX_ICEBLOCK = "Ice Block"
 
 -- Targets --

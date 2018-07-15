@@ -1,4 +1,4 @@
-ComixVersion = "v7.3.5.0";
+ComixVersion = "v7.3.5.1";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -626,7 +626,7 @@ end
 				Comix_DongSound(ComixAbilitySounds, 2);
 			elseif arg2 == COMIX_CANNIBALIZE then
 				Comix_DongSound(ComixAbilitySounds, 1);
-			elseif arg2 == COMIX_SPRINT or arg2 == COMIX_DASH then
+			elseif arg2 == COMIX_SPRINT or arg2 == COMIX_DASH or arg2 == COMIX_ASPECT then
 				Comix_DongSound(ComixSpecialSounds,11)
 			elseif arg2 == COMIX_DS or arg2 == COMIX_DR then
 			   if Comix_DemoShoutEnabled then
