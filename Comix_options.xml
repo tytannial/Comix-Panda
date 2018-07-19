@@ -1,6 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-  <Script file="comix_options.lua"/>
-  
+  <!-- <Script file="comix_options.lua"/> -->
+
   	<FontString name="ComixFont" outline="THIN" font="Interface\Addons\Comix\Fonts\comix.ttf" virtual="true">
 		<Shadow>
 			<Offset>
@@ -12,9 +12,9 @@
 			<AbsValue val="12"/>
 		</FontHeight>
 		<Color r="1.0" g="0.82" b="0.0"/>
-	</FontString>  
-	
-  
+	</FontString>
+
+
   <CheckButton name="comix_tmplt_chkbttn" inherits="OptionsSmallCheckButtonTemplate" virtual="true">
     <Scripts>
 	     <OnEnter>
@@ -59,7 +59,7 @@
       <Anchors>
         <Anchor point="Center"/>
       </Anchors>
-  	<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" 
+  	<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background"
 		edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
 		<BackgroundInsets>
 			<AbsInset left="11" right="12" top="12" bottom="11"/>
@@ -180,7 +180,7 @@
          end
          self:RegisterForDrag("LeftButton");
          comix_advanced_options_frame:RegisterForDrag("LeftButton");
-         comix_options_frame:Hide();        
+         comix_options_frame:Hide();
          comix_options_enableText:SetText("Enable Comix");
 		 comix_options_enable_soundText:SetText("Enable Sound");
 		 comix_options_enable_critsoundsText:SetText("Enable Crit Sounds");
@@ -219,7 +219,7 @@
        self.isMoving = false;
       </OnDragStop>
     </Scripts>
-    <Frames>  
+    <Frames>
       <CheckButton name="comix_options_enable" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
 		      <Anchor point="TOPLEFT">
@@ -246,9 +246,9 @@
 			     </Offset>
 		      </Anchor>
 	       </Anchors>
-      </CheckButton>         
-      
-      
+      </CheckButton>
+
+
       <Slider name="comix_options_scale_slider" inherits="comix_sliderz" minValue="1.5" maxValue="3" defaultValue="2" valueStep="0.1">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_images">
@@ -256,7 +256,7 @@
 				    <AbsDimension x="130" y="-40"></AbsDimension>
 			     </Offset>
 		      </Anchor>
-	       </Anchors>      
+	       </Anchors>
 	       <Scripts>
 	         <OnValueChanged>
 	          _G["comix_options_scale_sliderText"]:SetText(math.floor((self:GetValue()+0.05)*10)/10);
@@ -284,7 +284,7 @@
 				    <AbsDimension x="130" y="-70"></AbsDimension>
 			     </Offset>
 		      </Anchor>
-	       </Anchors>      
+	       </Anchors>
 	       <Scripts>
 	         <OnValueChanged>
 	          _G["comix_options_anispeed_sliderText"]:SetText(math.floor((self:GetValue()+0.05)*10)/10);
@@ -312,11 +312,11 @@
 				    <AbsDimension x="130" y="-100"></AbsDimension>
 			     </Offset>
 		      </Anchor>
-	       </Anchors>      
+	       </Anchors>
 	       <Scripts>
 	         <OnValueChanged>
 	          _G["comix_options_maxcrit_sliderText"]:SetText(math.floor((self:GetValue()+0.05)*10)/10);
-	          
+
 	         </OnValueChanged>
 	       </Scripts>
 	       <Layers>
@@ -340,7 +340,7 @@
 				    <AbsDimension x="130" y="-130"></AbsDimension>
 			     </Offset>
 		      </Anchor>
-	       </Anchors>      
+	       </Anchors>
 	       <Scripts>
 	         <OnValueChanged>
 	          _G["comix_options_critpercent_sliderText"]:SetText(self:GetValue());
@@ -367,7 +367,7 @@
 				    <AbsDimension x="130" y="-160"></AbsDimension>
 			     </Offset>
 		      </Anchor>
-	       </Anchors>      
+	       </Anchors>
 	       <Scripts>
 	         <OnValueChanged>
 	          _G["comix_options_finishgap_sliderText"]:SetText(math.floor((self:GetValue()+0.05)*10)/10);
@@ -386,8 +386,8 @@
 			     </FontString>
 	         </Layer>
 	       </Layers>
-      </Slider>      
-      
+      </Slider>
+
     <Slider name="comix_options_overkill_slider" inherits="comix_sliderz" minValue="50" maxValue="95" defaultValue="75" valueStep="1">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_images">
@@ -395,7 +395,7 @@
 				    <AbsDimension x="130" y="-190"></AbsDimension>
 			     </Offset>
 		      </Anchor>
-	       </Anchors>      
+	       </Anchors>
 	       <Scripts>
 	         <OnValueChanged>
 	          _G["comix_options_overkill_sliderText"]:SetText(math.floor((self:GetValue()+0.05)*10)/10);
@@ -414,8 +414,8 @@
 			     </FontString>
 	         </Layer>
 	       </Layers>
-      </Slider>   
-	<!-- Disabled until further notice  
+      </Slider>
+	<!-- Disabled until further notice
 	<Slider name="comix_options_shake_slider" inherits="comix_sliderz" minValue="1" maxValue="20" defaultValue="1" valueStep="1">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_images">
@@ -423,7 +423,7 @@
 				    <AbsDimension x="130" y="-220"></AbsDimension>
 			     </Offset>
 		      </Anchor>
-	       </Anchors>      
+	       </Anchors>
 	       <Scripts>
 	         <OnValueChanged>
 	          _G["comix_options_shake_sliderText"]:SetText(math.floor((self:GetValue()+0.05)*10)/10);
@@ -442,13 +442,13 @@
 			     </FontString>
 	         </Layer>
 	       </Layers>
-      </Slider>   
+      </Slider>
       -->
-      
-      
-      
-      
-      <Button name="comix_options_reporthug" inherits="comix_btnz" text="reporthug"> 
+
+
+
+
+      <Button name="comix_options_reporthug" inherits="comix_btnz" text="reporthug">
         <Anchors>
           <Anchor point="BOTTOMLEFT">
             <OFFSET>
@@ -461,8 +461,8 @@
             Comix_Command("reporthug");
           </OnClick>
         </Scripts>
-      </Button>      
-       <Button name="comix_options_showhug" inherits="comix_btnz" text="showhug"> 
+      </Button>
+       <Button name="comix_options_showhug" inherits="comix_btnz" text="showhug">
         <Anchors>
           <Anchor point="BOTTOMLEFT">
             <OFFSET>
@@ -475,8 +475,8 @@
             Comix_Command("showhug");
           </OnClick>
         </Scripts>
-      </Button>      
-      <Button name="comix_options_clearhug" inherits="comix_btnz" text="clearhug"> 
+      </Button>
+      <Button name="comix_options_clearhug" inherits="comix_btnz" text="clearhug">
         <Anchors>
           <Anchor point="BOTTOMRIGHT">
             <OFFSET>
@@ -493,7 +493,7 @@
 
 
 
-      <Button name="comix_options_reportjump" inherits="comix_btnz" text="reportjump"> 
+      <Button name="comix_options_reportjump" inherits="comix_btnz" text="reportjump">
         <Anchors>
           <Anchor point="BOTTOMLEFT">
             <OFFSET>
@@ -506,8 +506,8 @@
             Comix_Command("reportjump");
           </OnClick>
         </Scripts>
-      </Button>      
-       <Button name="comix_options_showjump" inherits="comix_btnz" text="showjump"> 
+      </Button>
+       <Button name="comix_options_showjump" inherits="comix_btnz" text="showjump">
         <Anchors>
           <Anchor point="BOTTOMLEFT">
             <OFFSET>
@@ -520,8 +520,8 @@
             Comix_Command("showjump");
           </OnClick>
         </Scripts>
-      </Button>      
-      <Button name="comix_options_clearjump" inherits="comix_btnz" text="clearjump"> 
+      </Button>
+      <Button name="comix_options_clearjump" inherits="comix_btnz" text="clearjump">
         <Anchors>
           <Anchor point="BOTTOMRIGHT">
             <OFFSET>
@@ -534,11 +534,11 @@
             Comix_Command("clearjump");
           </OnClick>
         </Scripts>
-      </Button>      
-      
-      
-      
-      <Button name="comix_options_create" inherits="comix_btnz" text="create"> 
+      </Button>
+
+
+
+      <Button name="comix_options_create" inherits="comix_btnz" text="create">
         <Anchors>
           <Anchor point="TOPRIGHT">
             <OFFSET>
@@ -552,7 +552,7 @@
           </OnClick>
         </Scripts>
       </Button>
-      <Button name="comix_options_pic" inherits="comix_btnz" text="pic"> 
+      <Button name="comix_options_pic" inherits="comix_btnz" text="pic">
         <Anchors>
           <Anchor point="TOPRIGHT">
             <OFFSET>
@@ -566,7 +566,7 @@
           </OnClick>
         </Scripts>
       </Button>
-      <Button name="Comix_AdvancedButton" inherits="comix_btnz" text="more >>"> 
+      <Button name="Comix_AdvancedButton" inherits="comix_btnz" text="more >>">
         <Anchors>
           <Anchor point="TOPRIGHT">
             <OFFSET>
@@ -669,7 +669,7 @@
 			     </Offset>
         </Anchor>
       </Anchors>
-  	<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" 
+  	<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background"
 		 tile="true">
 		<BackgroundInsets>
 			<AbsInset left="11" right="12" top="12" bottom="11"/>
@@ -685,7 +685,7 @@
 				</Anchors>
 			</FontString>
 		</Layer>
-		
+
 	</Layers>
 	<Frames>
 	<CheckButton name="comix_options_enable_critsounds" inherits="comix_tmplt_chkbttn" checked="true">
@@ -724,7 +724,7 @@
 		      </Anchor>
 	       </Anchors>
       </CheckButton>
-	  	  
+
       <CheckButton name="comix_options_enable_zoning" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_battleshout">
@@ -733,7 +733,7 @@
 			     </Offset>
 		      </Anchor>
 	       </Anchors>
-      </CheckButton>   
+      </CheckButton>
       <CheckButton name="comix_options_enable_deathsound" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_zoning">
@@ -742,7 +742,7 @@
 			     </Offset>
 		      </Anchor>
 	       </Anchors>
-      </CheckButton>   
+      </CheckButton>
       <CheckButton name="comix_options_enable_killcount" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_deathsound">
@@ -751,7 +751,7 @@
 			     </Offset>
 		      </Anchor>
 	       </Anchors>
-      </CheckButton>  	
+      </CheckButton>
        <CheckButton name="comix_options_enable_specials" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_killcount">
@@ -760,7 +760,7 @@
 			     </Offset>
 		      </Anchor>
 	       </Anchors>
-      </CheckButton>        
+      </CheckButton>
       <CheckButton name="comix_options_enable_bam" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_specials">
@@ -788,7 +788,7 @@
 			     </Offset>
 		      </Anchor>
 	       </Anchors>
-      </CheckButton>      
+      </CheckButton>
       -->
       <CheckButton name="comix_options_enable_critgap" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
@@ -836,7 +836,7 @@
 		      </Anchor>
 	       </Anchors>
       </CheckButton>
-	  
+
 	  <CheckButton name="comix_options_enable_bouncesound" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_battleshoutsound">
@@ -846,7 +846,7 @@
 		      </Anchor>
 	       </Anchors>
       </CheckButton>
-	  
+
 	  <CheckButton name="comix_options_enable_abilitysound" inherits="comix_tmplt_chkbttn" checked="true">
       	<Anchors>
 		      <Anchor point="TOPLEFT" relativeto="comix_options_enable_bouncesound">

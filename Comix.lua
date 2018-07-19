@@ -1,4 +1,4 @@
-ComixVersion = "v8.0.0.0";
+ComixVersion = "v8.0.0.1";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -9,7 +9,6 @@ Comix_Frame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 
 Comix_Frame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 Comix_Frame:RegisterEvent("PLAYER_TARGET_CHANGED")
-Comix_Frame:RegisterEvent("CHAT_MSG_COMBAT_FRIENDLY_DEATH")
 Comix_Frame:RegisterEvent("CHAT_MSG_COMBAT_HOSTILE_DEATH")
 Comix_Frame:RegisterEvent("CHAT_MSG_TEXT_EMOTE")
 Comix_Frame:RegisterEvent("CHAT_MSG_EMOTE")
