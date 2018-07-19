@@ -1,4 +1,4 @@
-ComixVersion = "v8.0.0.2";
+ComixVersion = "v8.0.0.3";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -20,7 +20,6 @@ Comix_Frame:RegisterEvent("PLAYER_UNGHOST")
 Comix_Frame:RegisterEvent("PLAYER_DEAD")
 Comix_Frame:RegisterEvent("READY_CHECK")
 Comix_Frame:RegisterEvent("PLAYER_LOGIN")
-Comix_Frame:RegisterEvent("OnUpdate")
 
 
 -- Saying Hello --
