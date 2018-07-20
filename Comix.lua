@@ -1,4 +1,4 @@
-ComixVersion = "v8.0.0.4";
+ComixVersion = "v8.0.0.5";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -255,6 +255,12 @@ function Comix_OnEvent(self, event, ...)
       --DEFAULT_CHAT_FRAME:AddMessage("COMBAT_LOG_EVENT_UNFILTERED fired "..select(2, ...));
       --DEFAULT_CHAT_FRAME:AddMessage("Should fire on self event "..select(2, ...));
 
+      -- debug spells ;)
+      --if sourceName == UnitName("player") then
+      --  DEFAULT_CHAT_FRAME:AddMessage("tS:"..timestamp.." / subEvent: "..subEvent.." / eA1: "..tostring(extraArg1).." / spellName: "..tostring(spellName).." / spellSchool: "..tostring(spellSchool).." / damage: "..tostring(damageAmount).." / overkill: "..tostring(overkillAmount).." / eA6: "..tostring(extraArg6).." / critical: "..tostring(critical).." / eA8: "..tostring(extraArg8).." / eA9: "..tostring(extraArg9) .." / eA10: "..tostring(extraArg10));
+      --end
+
+
       if subEvent == "SPELL_AURA_APPLIED" then
         if sourceName == UnitName("player") then
           --DEFAULT_CHAT_FRAME:AddMessage("Should fire on self event "..arg10);
@@ -356,7 +362,7 @@ function Comix_OnEvent(self, event, ...)
           end
         end
         if subEvent == "SPELL_DAMAGE" or subEvent == "RANGE_DAMAGE" then
-          --DEFAULT_CHAT_FRAME:AddMessage("spell/range_dmg fired "..arg10.." "..arg11.." "..arg15.." "..arg15.." "..tostring(arg18));
+          --DEFAULT_CHAT_FRAME:AddMessage("spell/range_dmg fired "..arg10.." "..arg11.." "..arg15.." "..arg15.." "..tostring(critical));
           --DEFAULT_CHAT_FRAME:AddMessage("spell/range_dmg fired "..arg12 - arg13.." "..arg13 / (arg12 - arg13))
 
           --DEFAULT_CHAT_FRAME:AddMessage(damageAmount);
@@ -373,8 +379,8 @@ function Comix_OnEvent(self, event, ...)
             end
           end
 
-          --DEFAULT_CHAT_FRAME:AddMessage("crittest "..tostring(select(21, ...)));
-    			if select(21, ...) == true then -- 21 is crit event
+          DEFAULT_CHAT_FRAME:AddMessage("crittest "..tostring(critical));
+    			if extraArg10 == true then -- extraArg10 is critical with spelldamage
             if Comix_CritGapEnabled == true then
 
               if damageAmount < Comix_CritGap then
