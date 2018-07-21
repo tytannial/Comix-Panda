@@ -1,4 +1,4 @@
-ComixVersion = "v8.0.0.5";
+ComixVersion = "v8.0.0.6";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -379,7 +379,7 @@ function Comix_OnEvent(self, event, ...)
             end
           end
 
-          DEFAULT_CHAT_FRAME:AddMessage("crittest "..tostring(critical));
+          --DEFAULT_CHAT_FRAME:AddMessage("crittest "..tostring(critical));
     			if extraArg10 == true then -- extraArg10 is critical with spelldamage
             if Comix_CritGapEnabled == true then
 
