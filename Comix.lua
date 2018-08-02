@@ -1,4 +1,4 @@
-ComixVersion = "v8.0.0.7";
+ComixVersion = "v8.0.0.8";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -285,61 +285,52 @@ function Comix_OnEvent(self, event, ...)
       end
 
 
-      if bit.band(sourceFlags, COMBATLOG_OBJECT_REACTION_FRIENDLY) > 0 then
-
-
-        if subEvent == "SPELL_HEAL" then
-          if sourceName == UnitName("player") then
-            --don't do anything for heals casted by player here
-          else
-            if destName == UnitName("player") then --someone cast a heal on the player we need to fire on a crit
-              if critical == true then
-                if Comix_CritGapEnabled == true then
-                  if damageAmount < Comix_CritGap then
-                    return --nothin to see here
+      if sourceFlags ~= nil then
+        if bit.band(sourceFlags, COMBATLOG_OBJECT_REACTION_FRIENDLY) > 0 then
+          if subEvent == "SPELL_HEAL" then
+            if sourceName == UnitName("player") then
+              --don't do anything for heals casted by player here
+            else
+              if destName == UnitName("player") then --someone cast a heal on the player we need to fire on a crit
+                if critical == true then
+                  if Comix_CritGapEnabled == true then
+                    if damageAmount < Comix_CritGap then
+                      return --nothin to see here
+                    end
                   end
-
-                end
-                if fastrandom(1,100) <= Comix_CritPercent then
-                  --heal cast on the player crit fire off stuff
-                  --DEFAULT_CHAT_FRAME:AddMessage("heal crit fire friendly");
-                  if Comix_HealFlashEnabled then
-                    Comix_ScreenFlash(0, 1, 0, 1);
-                    --UIFrameFlash( Comix_FrameFlash2, 0.5, 0.5, 2, false, 1, 0);
-                  end
-                  Comix_CallPic(ComixHolyHealImages[fastrandom(1, ComixHolyHealImagesCt)])
-                  if Comix_CritHealsEnabled then
-                    Comix_DongSound(ComixHealingSounds,fastrandom(1,ComixHealingSoundsCt))
+                  if fastrandom(1,100) <= Comix_CritPercent then
+                    --heal cast on the player crit fire off stuff
+                    --DEFAULT_CHAT_FRAME:AddMessage("heal crit fire friendly");
+                    if Comix_HealFlashEnabled then
+                      Comix_ScreenFlash(0, 1, 0, 1);
+                      --UIFrameFlash( Comix_FrameFlash2, 0.5, 0.5, 2, false, 1, 0);
+                    end
+                    Comix_CallPic(ComixHolyHealImages[fastrandom(1, ComixHolyHealImagesCt)])
+                    if Comix_CritHealsEnabled then
+                      Comix_DongSound(ComixHealingSounds,fastrandom(1,ComixHealingSoundsCt))
+                    end
                   end
                 end
               end
             end
+            --DEFAULT_CHAT_FRAME:AddMessage("Spell heal!! firing target = "..arg7);
           end
-          --DEFAULT_CHAT_FRAME:AddMessage("Spell heal!! firing target = "..arg7);
         end
       end
 
       if bit.band(sourceFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) > 0 then
-
-
         if subEvent == "PARTY_KILL" then
           --DEFAULT_CHAT_FRAME:AddMessage("Should fire on self event "..arg2);
           KillCount()
         end
-
-
         --DEFAULT_CHAT_FRAME:AddMessage("Should fire on self event "..arg2);
-
         if subEvent == "SPELL_HEAL" then
           --DEFAULT_CHAT_FRAME:AddMessage("Spell heal firing arg11 = "..tostring(arg12).." "..arg13);
           if critical == true then
-
             if Comix_CritGapEnabled == true then
-
               if damageAmount < Comix_CritGap then
                 return --nothin to see here
               end
-
             end
 
             if fastrandom(1,100) <= Comix_CritPercent then
