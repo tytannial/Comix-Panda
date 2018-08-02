@@ -1,4 +1,4 @@
-ComixVersion = "v8.0.0.6";
+ComixVersion = "v8.0.0.7";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -663,43 +663,39 @@ function Comix_OnEvent(self, event, ...)
     -- Hug Coounter .. FU String Manipulation!!! --
     if event == "CHAT_MSG_TEXT_EMOTE" then
 
-      if strfind(arg1, _G["COMIX_OBJECT"]) or strfind(arg1, _G["COMIX_OBJECTS"]) or strfind(arg1, _G["COMIX_OBJECTTO"]) or strfind(arg1, _G["COMIX_OBJECTSTO"]) then
-        --			DEFAULT_CHAT_FRAME:AddMessage("OBJECTION from "..arg2.." "..UnitSex(arg2), 0,1,0)
+      if arg1 ~= nil then
 
-        if UnitInParty(arg2) or UnitInRaid(arg2) then
-          if Comix_ObjectionImagesEnabled then
-            Comix_CallPic("portrait", arg2)
-            Comix_CallPic(ComixSpecialImages[5])
-          end
+        if strfind(arg1, _G["COMIX_OBJECT"]) or strfind(arg1, _G["COMIX_OBJECTS"]) or strfind(arg1, _G["COMIX_OBJECTTO"]) or strfind(arg1, _G["COMIX_OBJECTSTO"]) then
+          --			DEFAULT_CHAT_FRAME:AddMessage("OBJECTION from "..arg2.." "..UnitSex(arg2), 0,1,0)
 
-          if Comix_ObjectionSoundsEnabled then
-            if UnitSex(arg2) == 3 then
-              Comix_DongSound(ComixObjectionSounds, fastrandom(3, 4))
-            else
-              Comix_DongSound(ComixObjectionSounds, fastrandom(1, 2))
-            end
-          end
-
-        else
-          if Comix_PublicObjections then
+          if UnitInParty(arg2) or UnitInRaid(arg2) then
             if Comix_ObjectionImagesEnabled then
+              Comix_CallPic("portrait", arg2)
               Comix_CallPic(ComixSpecialImages[5])
             end
 
             if Comix_ObjectionSoundsEnabled then
-              Comix_DongSound(ComixObjectionSounds, fastrandom(1, 4))
+              if UnitSex(arg2) == 3 then
+                Comix_DongSound(ComixObjectionSounds, fastrandom(3, 4))
+              else
+                Comix_DongSound(ComixObjectionSounds, fastrandom(1, 2))
+              end
+            end
+
+          else
+            if Comix_PublicObjections then
+              if Comix_ObjectionImagesEnabled then
+                Comix_CallPic(ComixSpecialImages[5])
+              end
+
+              if Comix_ObjectionSoundsEnabled then
+                Comix_DongSound(ComixObjectionSounds, fastrandom(1, 4))
+              end
+
             end
 
           end
-
         end
-
-
-
-
-
-
-
       end
 
       if strfind(arg1, _G["COMIX_HUG"]) or strfind(arg1,_G["COMIX_HUGS"]) then
