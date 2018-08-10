@@ -1,4 +1,4 @@
-ComixVersion = "v8.0.0.8";
+ComixVersion = "v8.0.0.9";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -687,16 +687,27 @@ function Comix_OnEvent(self, event, ...)
 
           end
         end
-      end
 
-      if strfind(arg1, _G["COMIX_HUG"]) or strfind(arg1,_G["COMIX_HUGS"]) then
-        local HuggerNotFound = true
-        local HuggedNotFound = true
-        local comix_the_hugged_one = nil
-        if strfind(arg1,_G["COMIX_HUGS"]) then
-          if GetLocale() == "frFR" then
-            comix_the_hugged_one = strsub(arg1,strfind(arg1,'%a+',13))
-          else
+        if strfind(arg1, _G["COMIX_HUG"]) or strfind(arg1,_G["COMIX_HUGS"]) then
+          local HuggerNotFound = true
+          local HuggedNotFound = true
+          local comix_the_hugged_one = nil
+          if strfind(arg1,_G["COMIX_HUGS"]) then
+            if GetLocale() == "frFR" then
+              comix_the_hugged_one = strsub(arg1,strfind(arg1,'%a+',13))
+            else
+              local gappie = tonumber(_G["COMIX_HUGGAP"])
+              if arg2 == UnitName("player") then
+                gappie = gappie + 3
+              else
+                gappie = gappie + strlen(arg2)
+              end
+              comix_the_hugged_one = strsub(arg1,strfind(arg1,'%a+',gappie))
+
+            end
+          elseif strfind(arg1,"vous serre ") then
+            comix_the_hugged_one = UnitName("player")
+          elseif strfind(arg1, _G["COMIX_HUG"]) then
             local gappie = tonumber(_G["COMIX_HUGGAP"])
             if arg2 == UnitName("player") then
               gappie = gappie + 3
@@ -706,72 +717,61 @@ function Comix_OnEvent(self, event, ...)
             comix_the_hugged_one = strsub(arg1,strfind(arg1,'%a+',gappie))
 
           end
-        elseif strfind(arg1,"vous serre ") then
-          comix_the_hugged_one = UnitName("player")
-        elseif strfind(arg1, _G["COMIX_HUG"]) then
-          local gappie = tonumber(_G["COMIX_HUGGAP"])
-          if arg2 == UnitName("player") then
-            gappie = gappie + 3
-          else
-            gappie = gappie + strlen(arg2)
-          end
-          comix_the_hugged_one = strsub(arg1,strfind(arg1,'%a+',gappie))
 
-        end
-
-        if strfind(comix_the_hugged_one, _G["COMIX_YOULOW"]) then
-          comix_the_hugged_one = UnitName("player")
-        end
-
-        for i, line in ipairs(Comix_HugName) do
-          if comix_the_hugged_one == _G["COMIX_YOULOW"] then
+          if strfind(comix_the_hugged_one, _G["COMIX_YOULOW"]) then
             comix_the_hugged_one = UnitName("player")
           end
 
-          if Comix_HugName[i] == arg2 then
+          for i, line in ipairs(Comix_HugName) do
+            if comix_the_hugged_one == _G["COMIX_YOULOW"] then
+              comix_the_hugged_one = UnitName("player")
+            end
+
+            if Comix_HugName[i] == arg2 then
+              if not strfind(arg1, _G["COMIX_NEED"]) then
+                Comix_Hugs[i] = Comix_Hugs[i]+1
+                HuggerNotFound = false
+              end
+            end
+
+            if Comix_HugName[i] == comix_the_hugged_one then
+              Comix_Hugged[i] = Comix_Hugged[i]+1
+              HuggedNotFound = false
+            end
+
+          end
+
+          if HuggedNotFound then
             if not strfind(arg1, _G["COMIX_NEED"]) then
-              Comix_Hugs[i] = Comix_Hugs[i]+1
-              HuggerNotFound = false
+              Comix_HugName[getn(Comix_HugName)+1] = comix_the_hugged_one
+              Comix_Hugged[getn(Comix_HugName)] = 1
+              Comix_Hugs[getn(Comix_HugName)] = 0
+              Comix_HuggedNotFound = false;
             end
           end
 
-          if Comix_HugName[i] == comix_the_hugged_one then
-            Comix_Hugged[i] = Comix_Hugged[i]+1
-            HuggedNotFound = false
+          if HuggerNotFound then
+            if not strfind(arg1, _G["COMIX_NEED"]) then
+              Comix_HugName[getn(Comix_HugName)+1] = arg2
+              Comix_Hugs[getn(Comix_HugName)] = 1
+              Comix_Hugged[getn(Comix_HugName)] = 0
+              Comix_HuggedNotFound = false;
+            end
           end
 
-        end
-
-        if HuggedNotFound then
-          if not strfind(arg1, _G["COMIX_NEED"]) then
-            Comix_HugName[getn(Comix_HugName)+1] = comix_the_hugged_one
-            Comix_Hugged[getn(Comix_HugName)] = 1
-            Comix_Hugs[getn(Comix_HugName)] = 0
-            Comix_HuggedNotFound = false;
-          end
-        end
-
-        if HuggerNotFound then
-          if not strfind(arg1, _G["COMIX_NEED"]) then
-            Comix_HugName[getn(Comix_HugName)+1] = arg2
-            Comix_Hugs[getn(Comix_HugName)] = 1
-            Comix_Hugged[getn(Comix_HugName)] = 0
-            Comix_HuggedNotFound = false;
-          end
-        end
-
-        for i,line in ipairs(Comix_HugName) do
-          for j, line in ipairs(Comix_HugName) do
-            if Comix_Hugged[i] > Comix_Hugged[j] then
-              local Comix_TempHugged = Comix_Hugged[j]
-              local Comix_TempHugs = Comix_Hugs[j]
-              local Comix_TempHugName = Comix_HugName[j]
-              Comix_Hugged[j] = Comix_Hugged[i]
-              Comix_Hugs[j] = Comix_Hugs[i]
-              Comix_HugName[j] = Comix_HugName[i]
-              Comix_Hugged[i] = Comix_TempHugged
-              Comix_Hugs[i] = Comix_TempHugs
-              Comix_HugName[i] = Comix_TempHugName
+          for i,line in ipairs(Comix_HugName) do
+            for j, line in ipairs(Comix_HugName) do
+              if Comix_Hugged[i] > Comix_Hugged[j] then
+                local Comix_TempHugged = Comix_Hugged[j]
+                local Comix_TempHugs = Comix_Hugs[j]
+                local Comix_TempHugName = Comix_HugName[j]
+                Comix_Hugged[j] = Comix_Hugged[i]
+                Comix_Hugs[j] = Comix_Hugs[i]
+                Comix_HugName[j] = Comix_HugName[i]
+                Comix_Hugged[i] = Comix_TempHugged
+                Comix_Hugs[i] = Comix_TempHugs
+                Comix_HugName[i] = Comix_TempHugName
+              end
             end
           end
         end
