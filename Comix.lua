@@ -1,4 +1,4 @@
-ComixVersion = "v8.0.0.9";
+ComixVersion = "v8.0.1.0";
 ComixOptionsHeader = "Comix Options "..ComixVersion;
 
 function Comix_OnLoad()
@@ -586,14 +586,15 @@ function Comix_OnEvent(self, event, ...)
     if event == "CHAT_MSG_EMOTE" then
 
       if Comix_SpecialsEnabled then
-        if strfind(arg1, COMIX_BADJOKE) then
-          Comix_DongSound(ComixSpecialSounds, 17);
-        end
-        if strfind(arg1, COMIX_DRAMAEMOTE) then
-          Comix_DongSound(ComixSpecialSounds, 19);
+        if arg1 ~= nil then
+          if strfind(arg1, COMIX_BADJOKE) then
+            Comix_DongSound(ComixSpecialSounds, 17);
+          end
+          if strfind(arg1, COMIX_DRAMAEMOTE) then
+            Comix_DongSound(ComixSpecialSounds, 19);
+          end
         end
       end
-
     end
 
 
